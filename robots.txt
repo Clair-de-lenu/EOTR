@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/            # Block access to admin pages
+Disallow: /private/          # Block any private pages
+Disallow: /test/             # Block any test pages
+Allow: /
+
+# Indicate the location of your sitemap for search engines
+Sitemap: https://eotr-lenus-projects.vercel.app/sitemap.xml
