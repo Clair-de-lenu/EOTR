@@ -280,7 +280,7 @@ header .container {
 }
 
 .bg-fantasy {
-  background-image: url("../Assets/fantasy-background.jpg");
+  background-image: url("../Assets/bgangel.png");
   background-size: cover;
   background-position: center;
   color: white;
@@ -360,7 +360,7 @@ header .container {
 }
 
 .bg-fantasy-header {
-  background-image: url("../Assets/fantasy-background.jpg");
+  background-image: url("../Assets/bgangel.png");
   background-size: cover;
   background-position: center;
   padding: 100px 0;
@@ -396,7 +396,7 @@ header .container {
 }
 
 .bg-fantasy {
-  background-image: url("../Assets/fantasy-background.jpg");
+  background-image: url("../Assets/bgangel.png");
   background-size: cover;
   background-position: center;
   padding: 100px 0;
@@ -477,7 +477,7 @@ header .container {
 }
 
 .bg-dark-fantasy {
-  background-image: url("../Assets/dark-fantasy-background.jpg");
+  background-image: url("../Assets/bgangel.png");
   background-size: cover;
   background-position: center;
   padding: 100px 0;
