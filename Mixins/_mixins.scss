@@ -1,0 +1,39 @@
+// Mixins para breakpoints personalizados
+@mixin media-breakpoint-up($breakpoint) {
+    @if $breakpoint == xs {
+      @media (min-width: 480px) { @content; }
+    } @else if $breakpoint == sm {
+      @media (min-width: 768px) { @content; }
+    } @else if $breakpoint == md {
+      @media (min-width: 1024px) { @content; }
+    } @else if $breakpoint == lg {
+      @media (min-width: 1200px) { @content; }
+    } @else if $breakpoint == xl {
+      @media (min-width: 1400px) { @content; }
+    }
+  }
+  
+  @mixin media-breakpoint-down($breakpoint) {
+    @if $breakpoint == xs {
+      @media (max-width: 479px) { @content; }
+    } @else if $breakpoint == sm {
+      @media (max-width: 767px) { @content; }
+    } @else if $breakpoint == md {
+      @media (max-width: 1023px) { @content; }
+    } @else if $breakpoint == lg {
+      @media (max-width: 1199px) { @content; }
+    } @else if $breakpoint == xl {
+      @media (max-width: 1399px) { @content; }
+    }
+  }
+  // Mixin para border-radius
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+// Archivo: _mixins.scss
+
+// Mixin para la sombra en las tarjetas
+@mixin box-shadow($color, $x, $y, $blur) {
+    box-shadow: $x $y $blur $color;
+  }
+  

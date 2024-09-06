@@ -1,0 +1,617 @@
+// Variables de colores
+$white: rgb(255, 255, 255);
+$black: rgba(0, 0, 0, 0.5);
+$gray-light: rgba(206, 206, 206, 0.315);
+$bg-light: #f8f9fa;
+$bg-dark: #343a40;
+$border-color: #ccc;
+
+// Estilos generales del header
+header {
+  position: relative;
+  background-image: url("../Assets/bgangel.png");
+  background-size: cover;
+  background-position: center;
+  color: $white;
+  opacity: 2;
+  text-align: center;
+  padding: 100px 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black; // Opacidad ajustada
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    color: $white;
+    z-index: 2;
+  }
+}
+
+// Estilos generales para las secciones
+.bg-section {
+  &::before {
+    content: "";
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $gray-light;
+    z-index: -1;
+    border-radius: 10px;
+  }
+}
+
+.row {
+  border: 0px solid $border-color;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+// Efecto flip para tarjetas
+.flip-card {
+  background-color: transparent;
+  perspective: 1000px;
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+
+    &:hover {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border: 1px solid $border-color;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    .flip-card-front {
+      background-color: $bg-light;
+    }
+
+    .flip-card-back {
+      background-color: $bg-dark;
+      color: $white;
+      transform: rotateY(180deg);
+    }
+
+    img {
+      width: 100% !important;
+      height: auto !important;
+      max-height: 100px !important;
+      object-fit: contain !important;
+      margin-bottom: 10px !important;
+    }
+  }
+}
+
+// Ajustes responsivos
+@media (max-width: 1024px) {
+  .flip-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .flip-card p {
+    font-size: 0.95rem;
+  }
+
+  .flip-card-front img, .flip-card-back img {
+    max-height: 90px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .flip-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .flip-card p {
+    font-size: 0.9rem;
+  }
+
+  .flip-card-front img, .flip-card-back img {
+    max-height: 80px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .flip-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .flip-card p {
+    font-size: 0.8rem;
+  }
+
+  .flip-card-front img, .flip-card-back img {
+    max-height: 60px !important;
+  }
+}
+// Variables
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$dark-bg: #2c3e50;
+$text-color: #ecf0f1;
+
+// Animaciones
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+// Animación de entrada
+.fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+.fade-in-delay {
+  animation: fadeIn 2.5s ease-in-out;
+}
+
+// Animación de zoom
+.zoom-in {
+  animation: zoomIn 2s ease-in-out;
+}
+
+// Efecto hover para tarjetas
+.hover-effect {
+  transition: transform 0.3s ease;
+}
+
+.hover-effect:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+// Sección de visionarios
+#visionarios {
+  background-image: url('../Assets/sci-fi-background.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+}
+// Sección de Películas Recomendadas
+.movie-section {
+  background-color: $secondary-color; // Cambia por el color que desees
+  padding: 60px 0;
+  h2 {
+      color: $primary-color;
+      margin-bottom: 50px;
+  }
+}
+
+// Estructura de la cuadrícula de películas
+.movie-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+// Estilo de los ítems de película
+.movie-item {
+  position: relative;
+  overflow: hidden;
+  .movie-img-container {
+      position: relative;
+      &:hover .movie-info-overlay {
+          opacity: 1;
+          transform: translateY(0);
+      }
+  }
+  .movie-img {
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      &:hover {
+          transform: scale(1.05);
+      }
+  }
+  .movie-info-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: $text-color;
+      padding: 20px;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      h3 {
+          margin-bottom: 10px;
+      }
+  }
+}
+
+// Estilo de las películas individuales
+.movie-item {
+  .movie-img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+          box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+      }
+  }
+  .movie-info-overlay {
+      background: rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: all 0.5s ease;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      padding: 20px;
+      h3 {
+          margin-bottom: 15px;
+          font-size: 1.5rem;
+      }
+      p {
+          font-size: 1rem;
+      }
+  }
+}
+#visionarios {
+  background-color: $dark-bg;
+  padding: 60px 0;
+
+  .row {
+      display: flex;
+      align-items: center;
+  }
+
+  h2 {
+      color: $primary-color;
+      margin-bottom: 20px;
+  }
+
+  p {
+      color: $text-color;
+      margin-bottom: 30px;
+  }
+
+  .img-fluid {
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+  }
+
+  // Ajustes para pantallas pequeñas
+  @media (max-width: 768px) {
+      .text-center {
+          text-align: center;
+      }
+      .mb-md-0 {
+          margin-bottom: 20px;
+      }
+  }
+}
+// Fondo de la sección principal
+.bg-fantasy {
+    background-image: url('../Assets/fantasy-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+// Efecto de entrada por la izquierda
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.fade-in-left {
+    animation: fadeInLeft 1.5s ease-in-out;
+}
+
+// Efecto de entrada por la derecha
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.fade-in-right {
+    animation: fadeInRight 1.5s ease-in-out;
+}
+
+// Sección de "Personajes Épicos"
+.fantasy-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.epic-character {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        opacity: 0;
+        transition: all 0.4s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        color: white;
+    }
+    &:hover .overlay {
+        opacity: 1;
+    }
+}
+
+// Estilo para los bloques de fantasía en formato Z
+.fantasy-block {
+    margin-bottom: 60px;
+    img {
+        border-radius: 15px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    }
+    p {
+        margin-top: 20px;
+        color: #666;
+    }
+}
+// Fondo del encabezado de fantasía con imagen de fondo
+.bg-fantasy-header {
+    background-image: url('../Assets/fantasy-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 100px 0;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+// Efecto de fade-in para artículos
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards;
+    animation-delay: 0.3s;
+}
+
+// Animación fadeIn
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Efecto de zoom en las imágenes
+.zoom-in {
+    transition: transform 0.5s ease;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+// Sombra adicional para las imágenes
+.shadow-lg {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+// Fondo del encabezado de fantasía con imagen de fondo
+.bg-fantasy {
+  background-image: url('../Assets/fantasy-background.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+// Efecto de entrada por la izquierda
+@keyframes fadeInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+.fade-in-left {
+  animation: fadeInLeft 1.5s ease-in-out;
+}
+
+// Efecto de entrada por la derecha
+@keyframes fadeInRight {
+  from {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+.fade-in-right {
+  animation: fadeInRight 1.5s ease-in-out;
+}
+
+// Sección de Criaturas Fantásticas
+.fantasy-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.epic-creature {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: all 0.4s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      color: white;
+  }
+  &:hover .overlay {
+      opacity: 1;
+  }
+}
+
+// Diseño en Z para las secciones
+.fantasy-block {
+  margin-bottom: 60px;
+  img {
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  }
+  p {
+      margin-top: 20px;
+      color: #666;
+  }
+}
+// Fondo del encabezado de fantasía oscura
+.bg-dark-fantasy {
+  background-image: url('../Assets/dark-fantasy-background.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+// Efecto de entrada por la izquierda
+@keyframes fadeInLeft {
+  from {
+      opacity: 0;
+      transform: translateX(-50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+.fade-in-left {
+  animation: fadeInLeft 1.5s ease-in-out;
+}
+
+// Efecto de entrada por la derecha
+@keyframes fadeInRight {
+  from {
+      opacity: 0;
+      transform: translateX(50px);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0);
+  }
+}
+.fade-in-right {
+  animation: fadeInRight 1.5s ease-in-out;
+}
+
+// Sección de Criaturas Oscuras
+.fantasy-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.epic-creature {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      opacity: 0;
+      transition: all 0.4s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      color: white;
+  }
+  &:hover .overlay {
+      opacity: 1;
+  }
+}
+
+// Diseño en Z para las secciones
+.fantasy-block {
+  margin-bottom: 60px;
+  img {
+      border-radius: 15px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+  }
+  p {
+      margin-top: 20px;
+      color: #999;
+  }
+}

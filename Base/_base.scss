@@ -1,0 +1,53 @@
+@import '/Variables/variables';
+@import '/Mixins/mixins';  // Importa el archivo mixins para que las mixins estén disponibles
+
+// Estilos generales del header
+header {
+  position: relative;
+  background-image: url('/Images/bgangel.png');
+  background-size: cover;
+  background-position: center;
+  color: $white;
+  opacity: 1;
+  text-align: center;
+  padding: 100px 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    color: $white;
+    z-index: 2;
+  }
+}
+
+// Estilos generales para las secciones
+.bg-section {
+  &::before {
+    content: "";
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $gray-light;
+    z-index: -1;
+    @include border-radius(10px);
+  }
+}
+
+.row {
+  border: 0px solid $border-color;
+  margin-bottom: 20px;
+  padding: 10px;
+}
